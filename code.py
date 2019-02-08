@@ -10,21 +10,6 @@ import digitalio
 import busio
 import adafruit_mpl3115a2
 
-def get_temperature():
-    counter = 1
-    with open('temperature.csv', 'a') as fp:
-        print('counter, temperature')
-        fp.write('counter, temperature')
-        while True:
-            print('%d,%d\n' % (counter, cpx.temperature))
-            fp.write('%d,%d\n' % (counter, cpx.temperature))
-            fp.flush()
-            counter += 1
-            time.sleep(1)
-            if cpx.button_a == True and cpx.button_b == True:
-                print('Both buttons are pressed.')
-                break
-
 # ######################################################################################################
 # Checks if Circuit Playground is in read/write mode
 # ######################################################
@@ -85,11 +70,4 @@ def get_altitude():
 
 # ######################################################
 
-
-#true = read and write
-
-# if cpx.switch == False:
-#     cpx.red_led = True
-
-#get_temperature()
 get_altitude()
